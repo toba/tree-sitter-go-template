@@ -13,12 +13,6 @@ Valid curly brackets combination inside text block
 (template
     (if_action
         (function_call (identifier))
-        (text)
-        (text)
-        (text)
-        (text)
-        (text)
-        (text)
         (text)))
 
 ====================================
@@ -63,4 +57,15 @@ this:
   - is a yaml-list
 ---
 (template
+  (text))
+
+====================================
+JSON in attribute with template expressions
+====================================
+<div hx-vals='{"key":"{{ .Value }}"}'>content</div>
+---
+(template
+  (text)
+  (field
+    (identifier))
   (text))

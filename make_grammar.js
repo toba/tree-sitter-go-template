@@ -99,7 +99,10 @@ module.exports = function make_grammar(dialect) {
 
             text: (_) =>
                 choice(
-                    // forbid '{{', the rest is valid
+                    // Merge lone '{' with surrounding text to reduce fragmentation
+                    // for injected parsers. E.g. `<div hx-vals='{"key":"` becomes
+                    // one token instead of three separate pieces.
+                    token(seq(/[^{]+/, repeat1(seq(/\{/, /[^{]+/)))),
                     /[^{]+/,
                     /\{/
                 ),

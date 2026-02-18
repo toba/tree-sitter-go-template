@@ -34,6 +34,34 @@
       "type": "CHOICE",
       "members": [
         {
+          "type": "TOKEN",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[^{]+"
+              },
+              {
+                "type": "REPEAT1",
+                "content": {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "PATTERN",
+                      "value": "\\{"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "[^{]+"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
           "type": "PATTERN",
           "value": "[^{]+"
         },
